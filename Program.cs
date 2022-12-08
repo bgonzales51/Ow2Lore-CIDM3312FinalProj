@@ -1,7 +1,14 @@
+using Final.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<LoreContext>(options =>
+options.UseSqlite(builder.Configuration.GetConnectionString("LoreContext")));
 
 var app = builder.Build();
 
