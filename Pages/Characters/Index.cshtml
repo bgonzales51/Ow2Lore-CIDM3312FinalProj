@@ -5,28 +5,80 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    header{
+        background-color: #fa9c1d;
+    }
+    body{
+        margin: auto;
+        padding 10px;
+        background-color: #ffffff;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    a{
+        text-decoration: none;
+        color: #4a4c4e;
+    }
+</style>
+
+
+
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New Hero</a>
 </p>
+
+<form class="searchForm">
+    <input type="text" name="SearchString" />
+    <input type="submit" value="Search" />
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Lore[0].HeroName)
+                @{
+                    var firstSort = "first_asc";
+                    if (Model.CurrentSort == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                
+                <a asp-page="./Index" asp-route-CurrentSort="@firstSort" asp-route-PageNum="@(Model.PageNum)">@Html.DisplayNameFor(model => model.Lore[0].HeroName)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lore[0].Country)
+                @{
+                    var secondSort = "sec_asc";
+                    if (Model.CurrentSort == "sec_asc")
+                    {
+                        secondSort = "sec_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@secondSort" asp-route-PageNum="@(Model.PageNum)">@Html.DisplayNameFor(model => model.Lore[0].Country)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lore[0].HeroAge)
+                @{
+                    var thirdSort = "third_asc";
+                    if (Model.CurrentSort == "third_asc")
+                    {
+                        thirdSort = "third_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@thirdSort" asp-route-PageNum="@(Model.PageNum)">@Html.DisplayNameFor(model => model.Lore[0].HeroAge)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Lore[0].Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lore[0].Allegiance)
+                @{
+                    var fourSort = "four_asc";
+                    if (Model.CurrentSort == "four_asc")
+                    {
+                        fourSort = "four_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@fourSort" asp-route-PageNum="@(Model.PageNum)">@Html.DisplayNameFor(model => model.Lore[0].Allegiance)</a>
             </th>
             <th></th>
         </tr>
@@ -58,3 +110,24 @@
 }
     </tbody>
 </table>
+<hr />
+@{
+    
+    var prevDisabled = "";
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+    var nextDisabled = "";
+    if (Model.PageNum >=4)
+    {
+        nextDisabled = "disabled";
+    }
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    </ul>
+</nav>
