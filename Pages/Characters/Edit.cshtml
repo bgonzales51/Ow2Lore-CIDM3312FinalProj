@@ -1,0 +1,55 @@
+@page
+@model Ow2Lore_CIDM3312FinalProj.Pages_Characters.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Lore</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Lore.LoreID" />
+            <div class="form-group">
+                <label asp-for="Lore.HeroName" class="control-label"></label>
+                <input asp-for="Lore.HeroName" class="form-control" />
+                <span asp-validation-for="Lore.HeroName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lore.Country" class="control-label"></label>
+                <input asp-for="Lore.Country" class="form-control" />
+                <span asp-validation-for="Lore.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lore.HeroAge" class="control-label"></label>
+                <input asp-for="Lore.HeroAge" class="form-control" />
+                <span asp-validation-for="Lore.HeroAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lore.Gender" class="control-label"></label>
+                <input asp-for="Lore.Gender" class="form-control" />
+                <span asp-validation-for="Lore.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lore.Allegiance" class="control-label"></label>
+                <input asp-for="Lore.Allegiance" class="form-control" />
+                <span asp-validation-for="Lore.Allegiance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

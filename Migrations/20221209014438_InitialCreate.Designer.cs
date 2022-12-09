@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ow2LoreCIDM3312FinalProj.Migrations
 {
     [DbContext(typeof(LoreContext))]
-    [Migration("20221208065110_InitialCreate")]
+    [Migration("20221209014438_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -23,16 +23,6 @@ namespace Ow2LoreCIDM3312FinalProj.Migrations
                 {
                     b.Property<int>("InGameId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BestAbility")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Damage")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Health")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("HeroRole")

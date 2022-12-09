@@ -1,0 +1,60 @@
+@page
+@model Ow2Lore_CIDM3312FinalProj.Pages_Characters.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lore[0].HeroName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lore[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lore[0].HeroAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lore[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lore[0].Allegiance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Lore) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeroName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeroAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allegiance)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.LoreID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.LoreID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.LoreID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -22,16 +22,6 @@ namespace Ow2LoreCIDM3312FinalProj.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("BestAbility")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Damage")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Health")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("HeroRole")
                         .IsRequired()
                         .HasColumnType("TEXT");

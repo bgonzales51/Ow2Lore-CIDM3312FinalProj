@@ -34,10 +34,7 @@ namespace Ow2LoreCIDM3312FinalProj.Migrations
                     InGameId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     HeroRole = table.Column<string>(type: "TEXT", nullable: false),
-                    Weapon = table.Column<string>(type: "TEXT", nullable: false),
-                    BestAbility = table.Column<string>(type: "TEXT", nullable: false),
-                    Damage = table.Column<int>(type: "INTEGER", nullable: false),
-                    Health = table.Column<int>(type: "INTEGER", nullable: false)
+                    Weapon = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
